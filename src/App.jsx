@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef, useMemo, useEffect } from 'react'
 import { getCleaningReport } from './utils/urlCleaner'
+import { appConfig } from './config'
 
 const DEMO_URL = 'https://shop.example.com/product?utm_source=facebook&utm_medium=cpc&utm_campaign=summer_sale&fbclid=IwAR3xK9mN2pL&gclid=CjwKCAiA&ref=affiliate123&_ga=2.123456789'
 
@@ -76,7 +77,7 @@ function App() {
 
   const handleShare = useCallback(() => {
     const cleanedURL = result?.cleanedURL || demoResult.cleanedURL
-    const tweetText = `Just cleaned a URL with wirier - removes tracking from any link in one click\n\n${cleanedURL}\n\nTry it: wirier.com`
+    const tweetText = `Just cleaned a URL with ${appConfig.name}\n\n${cleanedURL}\n\nTry it: ${appConfig.url}`
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`
     window.open(twitterUrl, '_blank', 'width=550,height=420')
   }, [result, demoResult])
@@ -89,7 +90,7 @@ function App() {
       <main className="hero">
         <div className="hero-container">
           <div className="brand">
-            <h1 className="logo">wirier<span className="accent">.</span></h1>
+            <h1 className="logo">{appConfig.name}</h1>
           </div>
 
           <h2 className="headline">Remove tracking from any URL</h2>
@@ -352,7 +353,7 @@ function App() {
       </section>
 
       <footer className="footer">
-        <p>© 2025 Wirier</p>
+        <p>© {new Date().getFullYear()} {appConfig.name}</p>
       </footer>
     </div>
   )
