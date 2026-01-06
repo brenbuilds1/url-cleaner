@@ -1,0 +1,81 @@
+# Dependencies
+node_modules/
+
+# Claude Code
+.claude/
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.secret
+secrets/
+credentials.json
+
+# AWS
+.aws/
+aws_access_key*
+aws_secret*
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+.terraform.lock.hcl
+
+# Infrastructure (local only)
+*.tf
+Dockerfile
+docker-compose.yml
+docker-compose.yaml
+Makefile
+.dockerignore
+deploy.sh
+start-local.sh
+start-production.sh
+stop.sh
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+*~
+
+# Testing
+coverage/
+.nyc_output/
+
+# Production files (site-specific, not for open source)
+public/
+src/index.production.html
+src/config.production.js
+
+# Misc
+*.tmp
+*.bak
+*.local
